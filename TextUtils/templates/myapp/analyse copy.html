@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis Result</title>
+    {% load static %}
+</head>
+<body>
+    <h1>Analysis Result</h1>
+    <p><strong>Purpose:</strong> {{ purpose }}</p>
+    <p><strong>Analyzed Text:</strong></p>
+    <p>{{ analysedText }}</p>
+
+    {% if "Converted Text to Speech" in purpose %}
+        <h2>Text to Speech Result</h2>
+        <audio controls>
+            <source src="{% url 'serve_audio' 'output.mp3' %}" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+</body>
+</html>
+
+
+
